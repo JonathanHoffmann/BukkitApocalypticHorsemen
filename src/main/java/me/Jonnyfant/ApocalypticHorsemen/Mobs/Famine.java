@@ -1,5 +1,6 @@
 package me.Jonnyfant.ApocalypticHorsemen.Mobs;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -9,7 +10,9 @@ import org.bukkit.entity.Skeleton;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class Famine {
     public Famine (Location location)
@@ -23,13 +26,14 @@ public class Famine {
         famineHorse.setStyle(Horse.Style.NONE);
         famineHorse.setRemoveWhenFarAway(false);
         famineHorse.setCustomName("Famine's Horse");
-        famineHorse.addPassenger(famine);
+
         famineHorse.setAdult();
         famineHorse.setTamed(true);
-        famineHorse.getInventory().setSaddle(new ItemStack(Material.SADDLE,1));
+        //famineHorse.getInventory().setSaddle(new ItemStack(Material.SADDLE,1));
 
         ItemStack famineWeapon = new ItemStack(Material.BOW,1);
         //famineWeapon.addEnchantment(Enchantment.DAMAGE_UNDEAD,5);
+        famineWeapon.addEnchantment(Enchantment.ARROW_DAMAGE,4);
         ItemMeta famineWeaponItemMeta = famineWeapon.getItemMeta();
         famineWeaponItemMeta.setDisplayName("Famine's Bow");
         famineWeapon.setItemMeta(famineWeaponItemMeta);
@@ -55,8 +59,11 @@ public class Famine {
         famineArmor.addEnchantment(Enchantment.PROTECTION_FIRE,4);
         famineArmor.addEnchantment(Enchantment.PROTECTION_PROJECTILE,4);
         ItemMeta famineArmorItemMeta = famineArmor.getItemMeta();
-        famineArmorItemMeta.setDisplayName("Famines Chestplate");
-        famineArmorItemMeta.setLore(Collections.singletonList("Famines Chestplate\nConsumes food."));
+        famineArmorItemMeta.setDisplayName("Famine's Chestplate");
+        List<String> lore = new ArrayList<String>();
+        lore.add("Famine's Chestplate");
+        lore.add("Consumes Food.");
+        famineArmorItemMeta.setLore(lore);
         famineArmor.setItemMeta(famineArmorItemMeta);
         famine.getEquipment().setChestplate(famineArmor);
         famine.getEquipment().setChestplateDropChance(1);
@@ -84,5 +91,8 @@ public class Famine {
         famineBoots.setItemMeta(famineBootsItemMeta);
         famine.getEquipment().setBoots(famineBoots);
         famine.getEquipment().setBootsDropChance(1);
+
+
+        famineHorse.addPassenger(famine);
     }
 }

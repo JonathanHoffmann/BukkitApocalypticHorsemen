@@ -11,10 +11,16 @@ import org.bukkit.potion.PotionEffectType;
 public class FamineDamageListener implements Listener {
     @EventHandler(priority = EventPriority.LOW)
     public void onPlayerDamageFamine(EntityDamageByEntityEvent e) {
-        if(e.getDamager().getCustomName().equals("Famine"))
+        try {
+            if (e.getDamager().getCustomName().equals("Famine")) {
+                LivingEntity damaged = (LivingEntity) e.getEntity();
+                damaged.sendMessage("You have been damaged by Famine");
+                damaged.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER, 200, 5));
+            }
+        }
+        catch (Exception ex)
         {
-            LivingEntity damaged = (LivingEntity) e.getEntity();
-            damaged.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER, 200, 5));
+
         }
     }
 }

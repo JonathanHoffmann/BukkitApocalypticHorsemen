@@ -27,7 +27,7 @@ public class Pestilence {
         pestilenceHorse.addPassenger(pestilence);
         pestilenceHorse.setAdult();
         pestilenceHorse.setTamed(true);
-        pestilenceHorse.getInventory().setSaddle(new ItemStack(Material.SADDLE,1));
+        //pestilenceHorse.getInventory().setSaddle(new ItemStack(Material.SADDLE,1));
 
         ItemStack pestilenceWeapon = new ItemStack(Material.BOW,1);
         pestilenceWeapon.addEnchantment(Enchantment.ARROW_DAMAGE,5);

@@ -25,10 +25,10 @@ public class War {
         warHorse.setStyle(Horse.Style.NONE);
         warHorse.setRemoveWhenFarAway(false);
         warHorse.setCustomName("War's Horse");
-        warHorse.addPassenger(war);
+
         warHorse.setAdult();
         warHorse.setTamed(true);
-        warHorse.getInventory().setSaddle(new ItemStack(Material.SADDLE,1));
+        //warHorse.getInventory().setSaddle(new ItemStack(Material.SADDLE,1));
 
         ItemStack warWeapon = new ItemStack(Material.NETHERITE_SWORD,1);
         warWeapon.addEnchantment(Enchantment.DAMAGE_UNDEAD,5);
@@ -59,5 +59,7 @@ public class War {
         warequipment.setChestplateDropChance(0);
         warequipment.setHelmet(warHead);
         warequipment.setHelmetDropChance(0);
+
+        warHorse.addPassenger(war);
     }
 }

@@ -33,17 +33,17 @@ public class Death {
         deathHorse.addPassenger(death);
         deathHorse.setAdult();
         deathHorse.setTamed(true);
-        deathHorse.getInventory().setSaddle(new ItemStack(Material.SADDLE,1));
+        //deathHorse.getInventory().setSaddle(new ItemStack(Material.SADDLE,1));
         //deathHorse.getInventory().setArmor(new ItemStack(Material.DIAMOND_HORSE_ARMOR,1));
 
         ItemStack deathWeapon = new ItemStack(Material.NETHERITE_HOE,1);
         //deathWeapon.addEnchantment(Enchantment.DAMAGE_UNDEAD,5);
         ItemMeta deathWeaponItemMeta = deathWeapon.getItemMeta();
-        deathWeaponItemMeta.setDisplayName(ChatColor.BLACK + "Death's Scythe");
+        deathWeaponItemMeta.setDisplayName("Death's Scythe");
         List<String> lore = new ArrayList<String>();
-        lore.add(ChatColor.BLACK + "Death's Scythe");
-        lore.add(ChatColor.BLACK + "Useless in the wrong hands.");
-        lore.add(ChatColor.BLACK + "Immensely powerful in the hands of it's righteous owner.");
+        lore.add("Death's Scythe");
+        lore.add("Useless in the wrong hands.");
+        lore.add("Immensely powerful in the hands of it's righteous owner.");
         deathWeaponItemMeta.setLore(lore);
         deathWeapon.setItemMeta(deathWeaponItemMeta);
         death.setCanPickupItems(false);

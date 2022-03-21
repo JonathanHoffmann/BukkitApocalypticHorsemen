@@ -4,7 +4,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.EntitySpawnEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
@@ -22,29 +21,37 @@ public class FoodListener implements Listener {
         ItemStack leggins = p.getInventory().getLeggings();
         ItemStack shoes = p.getInventory().getBoots();
 
-        if(head.getItemMeta().getLore().equals(Collections.singletonList("Famines Helmet\nConsumes food.")))
-        {
-            hunger(p);
+        try {
+            if (head.getItemMeta().getLore().equals(Collections.singletonList("Famines Helmet\nConsumes food."))) {
+                hunger(p);
+            }
+        } catch (Exception exception) {
         }
-        if(armor.getItemMeta().getLore().equals(Collections.singletonList("Famines Chestplate\nConsumes food.")))
-        {
-            hunger(p);
+        try {
+            if (armor.getItemMeta().getLore().contains("Famine's Chesplate")) {
+                hunger(p);
+            }
+        } catch (Exception exception) {
         }
-        if(leggins.getItemMeta().getLore().equals(Collections.singletonList("Famines Leggings\nConsumes food.")))
-        {
-            hunger(p);
+        try {
+            if (leggins.getItemMeta().getLore().equals(Collections.singletonList("Famines Leggings\nConsumes food."))) {
+                hunger(p);
+            }
+        } catch (Exception exception) {
         }
-        if(shoes.getItemMeta().getLore().equals(Collections.singletonList("Famines Boots\nConsumes food.")))
-        {
-            hunger(p);
+        try {
+            if (shoes.getItemMeta().getLore().equals(Collections.singletonList("Famines Boots\nConsumes food."))) {
+                hunger(p);
+            }
+        } catch (Exception exception) {
         }
     }
 
-    public void hunger(Player p)
-    {
+    public void hunger(Player p) {
+        p.sendMessage("Chance to get hungry");
         Random random = new Random();
-        if(random.nextInt(100)<2)
-        {
+        if (random.nextInt(100) < 20) {
+
             p.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER, 60, 1));
 
         }
